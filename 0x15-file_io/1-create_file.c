@@ -1,7 +1,10 @@
 #include "main.h"
 
-/*
- * Creates a file
+/**
+ * read_textfile - reads a text file and prints it to stdout.
+ * @filename: The name of the file to read.
+ * @letters: The maximum number of letters to read.
+ * Return: The actual number of letters read and printed.
  */
 int create_file(const char *filename, char *text_content)
 {
