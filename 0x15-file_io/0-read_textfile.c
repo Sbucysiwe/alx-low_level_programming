@@ -2,7 +2,10 @@
 #include <stdlib.h>
 
 /**
- * reads a text file and prints it.
+ * read_textfile - reads a text file and prints it to stdout.
+ * @filename: The name of the file to read.
+ * @letters: The maximum number of letters to read.
+ * Return: The actual number of letters read and printed.
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
