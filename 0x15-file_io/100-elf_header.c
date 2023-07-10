@@ -43,9 +43,7 @@ void check_elf(unsigned char *e_ident)
 void print_magic(unsigned char *e_ident)
 {
 	int index;
-
 	printf(" Magic: ");
-
 	for (index = 0; index < EI_NIDENT; index++)
 	{
 		printf("%02x", e_ident[index]);
@@ -62,7 +60,6 @@ void print_magic(unsigned char *e_ident)
 */
 {
 	printf(" Class: ");
-
 	switch (e_ident[EI_CLASS])
 	{
 	case ELFCLASSNONE:
@@ -85,7 +82,6 @@ void print_magic(unsigned char *e_ident)
 void print_data(unsigned char *e_ident)
 {
 	printf(" Data: ");
-
 	switch (e_ident[EI_DATA])
 	{
 	case ELFDATANONE:
@@ -273,7 +269,6 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
-
 	check_elf(header->e_ident);
 	printf("ELF Header:\n");
 	print_magic(header->e_ident);
@@ -284,7 +279,6 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	print_abi(header->e_ident);
 	print_type(header->e_type, header->e_ident);
 	print_entry(header->e_entry, header->e_ident);
-
 	free(header);
 	close_elf(o);
 	return (0);
