@@ -1,8 +1,9 @@
 #include "main.h"
 #include <stdlib.h>
-/*
-*Read the text file and print 
-*/
+
+/**
+ * reads a text file and prints it.
+ */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	char *buf;
