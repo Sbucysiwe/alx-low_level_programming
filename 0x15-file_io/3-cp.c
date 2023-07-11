@@ -6,8 +6,10 @@ char *create_buffer(char *file);
 void close_file(int fd);
 
 /**
- *creates a buffer
-  */
+ * create_buffer - Creates a buffer for file operations.
+ * @file: The name of the file.
+ * Return: A pointer to the buffer on success, or exit with error code on failure.
+ */
 char *create_buffer(char *file)
 {
 	char *buffer;
@@ -25,8 +27,9 @@ char *create_buffer(char *file)
 }
 
 /**
-*Closes the file descriptors.
-*/
+ * close_file - Closes a file descriptor.
+ * @fd: The file descriptor.
+ */
 void close_file(int fd)
 {
 	int c;
@@ -41,7 +44,10 @@ void close_file(int fd)
 }
 
 /**
-* copies the content of a file to another file.
+ * main - Copies the content of a file to another file.
+ * @argc: The argument count.
+ * @argv: The argument vector.
+ * Return: 0 on success, or exit with error code on failure.
  */
 int main(int argc, char *argv[])
 {
@@ -88,4 +94,3 @@ int main(int argc, char *argv[])
 
 	return (0);
 }
-
