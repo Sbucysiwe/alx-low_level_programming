@@ -8,7 +8,7 @@ void close_file(int fd);
 /**
  * create_buffer - Creates a buffer for file operations.
  * @file: The name of the file.
- * Return: A pointer to the buffer on success, or exit with error code on failure.
+ * Return: A pointer to the buffer on success.
  */
 char *create_buffer(char *file)
 {
