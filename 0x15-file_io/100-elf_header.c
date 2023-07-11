@@ -18,8 +18,9 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident);
 void close_elf(int elf);
 
 /**
-* Checks for an ELF file
-*/
+ * check_elf - Checks if the file is an ELF file.
+ * @e_ident: The ELF identification bytes.
+ */
 void check_elf(unsigned char *e_ident)
 {
 	int index;
@@ -38,7 +39,8 @@ void check_elf(unsigned char *e_ident)
 }
 
 /**
-*Prints the magic numbers
+ * print_magic - Prints the magic numbers.
+ * @e_ident: The ELF identification bytes.
  */
 void print_magic(unsigned char *e_ident)
 {
@@ -56,8 +58,9 @@ void print_magic(unsigned char *e_ident)
 }
 
 /**
-*Prints the class
-*/
+ * print_class - Prints the class.
+ * @e_ident: The ELF identification bytes.
+ */
 {
 	printf(" Class: ");
 	switch (e_ident[EI_CLASS])
@@ -77,8 +80,9 @@ void print_magic(unsigned char *e_ident)
 }
 
 /**
-* Prints the data
-*/
+ * print_data - Prints the data encoding.
+ * @e_ident: The ELF identification bytes.
+ */
 void print_data(unsigned char *e_ident)
 {
 	printf(" Data: ");
@@ -97,10 +101,10 @@ void print_data(unsigned char *e_ident)
 		printf("<unknown: %x>\n", e_ident[EI_CLASS]);
 	}
 }
-
 /**
-*Prints ELF version header
-*/
+ * print_version - Prints the ELF version.
+ * @e_ident: The ELF identification bytes.
+ */
 void print_version(unsigned char *e_ident)
 {
 	 printf(" Version: %d",
@@ -118,8 +122,9 @@ void print_version(unsigned char *e_ident)
 }
 
 /**
-*Prints the OS/ABI
-*/
+ * print_osabi - Prints the OS/ABI.
+ * @e_ident: The ELF identification bytes.
+ */
 void print_osabi(unsigned char *e_ident)
 {
 	printf(" OS/ABI: ");
@@ -162,20 +167,23 @@ void print_osabi(unsigned char *e_ident)
 }
 
 /**
- *
-*ELF ABI version
-*/
-void print_abi(unsigned char *e_ident)
+ * print_abi - Prints the ABI version.
+ * @e_ident: The ELF identification bytes.
+ */
+void 
+print_abi(unsigned char *e_ident)
 {
 	printf(" ABI Version: %d\n",
 		e_ident[EI_ABIVERSION]);
 }
 
 /**
- *
-*Prints ELF type
-*/
-void print_type(unsigned int e_type, unsigned char *e_ident)
+ * print_type - Prints the ELF type.
+ * @e_type: The ELF type.
+ * @e_ident: The ELF identification bytes.
+ */
+void 
+print_type(unsigned int e_type, unsigned char *e_ident)
 {
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
@@ -203,12 +211,14 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 		printf("<unknown: %x>\n", e_type);
 	}
 }
-
 /**
- *
-*Prints the address of the ELF entry point
-*/
-void print_entry(unsigned long int e_entry, unsigned char *e_ident)
+ * print_entry - Prints the entry point address of the ELF file.
+ * @e_entry: The entry point address.
+ * @e_ident: The ELF identification bytes.
+ */
+
+void 
+print_entry(unsigned long int e_entry, unsigned char *e_ident)
 {
 	printf(" Entry point address: ");
 
@@ -227,9 +237,11 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 }
 
 /**
- *Closes an ELF file
+ * close_elf - Closes the file descriptor associated with the ELF file.
+ * @elf: The file descriptor of the ELF file.
  */
-void close_elf(int elf)
+void 
+close_elf(int elf)
 {
 	if (close(elf) == -1)
 	{
@@ -240,10 +252,12 @@ void close_elf(int elf)
 }
 
 /**
- *
-*Displays information
-*/
-int main(int __attribute__((__unused__)) argc, char *argv[])
+ * main - Entry point of the program.
+ * @argc: The number of command-line arguments.
+ * @argv: An array of command-line arguments.
+ */
+int main(int __attribute__((__unused__)) argc
+char *argv[])
 {
 	Elf64_Ehdr *header;
 	int o, r;
