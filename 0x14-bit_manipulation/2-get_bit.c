@@ -1,25 +1,19 @@
 #include "main.h"
 
 /**
-*get_bit -Get the bit value at a given index in a decimal number.
-*@n: The decimal number to search the bit in.
-*@index: The index of the bit to get.
-*Return: The value of the bit at the specified index (0 or 1).
-*/
-unsigned int binary_to_uint(const char *b)
+ * get_bit -Retrieve bit at index in decimal
+ * @n: number to search
+ * @index: index of the bit
+ * Return: value of the bit
+ */
+int get_bit(unsigned long int n, unsigned int index)
 {
-	int i;
-	unsigned int dec_val = 0;
+	int bit_val;
 
-	if (!b)
-		return (0);
+	if (index > 63)
+		return (-1);
 
-	for (i = 0; b[i]; i++)
-	{
-		if (b[i] < '0' || b[i] > '1')
-			return (0);
-		dec_val = 2 * dec_val + (b[i] - '0');
-	}
+	bit_val = (n >> index) & 1;
 
-	return (dec_val);
+	return (bit_val);
 }
